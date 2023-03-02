@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: devfile-sample-code-with-quarkus-n6uo
+  namespace: e2e-demos-flsh-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images-protected@sha256:7d080c4b6ac887e9b4ed836f0964e48815fa8017b39b61cec86ad9fdfbd814ae
+        name: my-java-quarkus
+        resources: {}
+status: {}
