@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-code-with-quarkus-n6uo
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-code-with-quarkus-n6uo
+    app.kubernetes.io/part-of: quarkus
+  name: devfile-sample-code-with-quarkus-n6uo
+  namespace: e2e-demos-flsh-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-quarkus-app
+      app.kubernetes.io/instance: devfile-sample-code-with-quarkus-n6uo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: java-quarkus-app
+        app.kubernetes.io/instance: devfile-sample-code-with-quarkus-n6uo
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images-protected:n2E2s-devfile-sample-code-with-quarkus-n6uo
+        name: my-java-quarkus
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 250Mi
+          requests:
+            cpu: 10m
+            memory: 100Mi
+status: {}
